@@ -1,4 +1,5 @@
 
+
 const city=['Gorakhpur','delhi','prayag','lucknow','allhabad','Ayodhya','Kiskindha','Lanka','Kanya kumari','Gokul'] 
 let selectedCity = []
 const cityInput=document.getElementById('city-input')
@@ -77,7 +78,7 @@ const showcityList=(event)=>{
             element.addEventListener('click',()=>{
                 element.classList.toggle('selected')
 
-                selectedCity.includes(element.textContent)?selectedCity.pop(element.textContent):selectedCity.push(element.textContent)
+                selectedCity.includes(element.textContent)?selectedCity.splice(selectedCity.indexOf(element.textContent), 1):selectedCity.push(element.textContent)
                 //need to correct//if  element.textContent= ''
                 addToDiv('city-view',selectedCity)
              })   
@@ -151,7 +152,7 @@ const showprovincList=(event)=>{
             element.addEventListener('click',()=>{
                 element.classList.toggle('selected')
 
-                selectedprovinc.includes(element.textContent)?selectedprovinc.pop(element.textContent):selectedprovinc.push(element.textContent)
+                selectedprovinc.includes(element.textContent)?selectedprovinc.splice(selectedprovinc.indexOf(element.textContent), 1):selectedprovinc.push(element.textContent)
                 //need to correct//if  element.textContent= ''
                 addToDiv('provinc-view',selectedprovinc)
              })   
@@ -168,6 +169,7 @@ const showprovincList=(event)=>{
 provincInput.addEventListener('focus',showprovincList)    // show list on click input    
 
 provincInput.addEventListener('keyup',showprovincList)    // show list on typing
+
 
 
 
