@@ -1,5 +1,4 @@
 
-
 const city=['Gorakhpur','delhi','prayag','lucknow','allhabad','Ayodhya','Kiskindha','Lanka','Kanya kumari','Gokul'] 
 let selectedCity = []
 const cityInput=document.getElementById('city-input')
@@ -8,7 +7,7 @@ const cityView=document.getElementById('city-view')
 
 
 // Show selected city to div
-cityView.addEventListener('click',()=>{
+cityView.nextElementSibling.addEventListener('click',()=>{
     cityView.classList.toggle('wrap')
     addToDiv('city-view',selectedCity)
 })
@@ -19,10 +18,10 @@ const addToDiv=(view,list)=>{
         n=document.createElement('span')
         n.setAttribute('class','acpsule')
         n.textContent=list[0]
-        b=document.createElement('button')
-        b.innerHTML='  <i class="fa-sharp fa-solid fa-xmark" style="margin:1px;"></i>'
-        b.setAttribute('class','cross')
-        n.appendChild(b)
+            // b=document.createElement('button')
+            // b.innerHTML='  <i class="fa-sharp fa-solid fa-xmark" style="margin:1px;"></i>'
+            // b.setAttribute('class','cross')
+            // n.appendChild(b)
         document.getElementById(`${view}`).appendChild(n)
         if(list.length>1){
         n=document.createElement('span')
@@ -35,6 +34,7 @@ const addToDiv=(view,list)=>{
         n.textContent=`${e}`
         b=document.createElement('button')
         b.innerHTML='  <i class="fa-sharp fa-solid fa-xmark" style="margin:1px;"></i>'
+        b.addEventListener('click',()=>{list.splice(list.indexOf(e), 1);addToDiv(view,list)})
         b.setAttribute('class','cross')
         n.appendChild(b)
         document.getElementById(`${view}`).appendChild(n)
@@ -113,7 +113,7 @@ const provincView=document.getElementById('provinc-view')
 
 
 // Show selected provinc to div
-provincView.addEventListener('click',()=>{
+provincView.nextElementSibling.addEventListener('click',()=>{
     provincView.classList.toggle('wrap')
     addToDiv('provinc-view',selectedprovinc)
 })
@@ -169,7 +169,6 @@ const showprovincList=(event)=>{
 provincInput.addEventListener('focus',showprovincList)    // show list on click input    
 
 provincInput.addEventListener('keyup',showprovincList)    // show list on typing
-
 
 
 
